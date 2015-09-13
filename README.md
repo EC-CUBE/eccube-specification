@@ -1,3 +1,7 @@
 # eccube3-doc
-EC-CUBE3開発中のER図・テーブル定義管理用レポジトリです。
-完了後、本家レポジトリへマージします。
+EC-CUBE3開発用のドキュメントリポジトリです。
+
+## 現在提供されているもの
+
+* ER図 ( /ER-D/ )
+  * [ERMaster](http://ermaster.sourceforge.net/index_ja.html) を使用しています。
