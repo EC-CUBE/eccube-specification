@@ -1,5 +1,5 @@
-# eccube3-doc
-EC-CUBE3開発用のドキュメントリポジトリです。
+# eccube-specification
+EC-CUBE開発用のドキュメントリポジトリです。
 
 ## 現在提供されているもの
 
