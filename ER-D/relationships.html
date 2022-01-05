@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>eccubedb Database</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="bower/html5shiv/html5shiv.min.js"></script>
+        <script src="bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../index.html" class="navbar-brand"><b>eccubedb</b> Database</a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>All Relationships</h1>
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 class="box-title">Diagrams</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom">
+                                <!-- Tabs within a box -->
+                                <h5>By default only columns that are primary keys, foreign keys or indexes are shown.</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#compactDegreeImg-chart" data-toggle="tab" aria-expanded="true">Compact</a></li>
+                                    <li class=""><a href="#largeDegreeImg-chart" data-toggle="tab" aria-expanded="true">Large</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="compactDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="compactRelationshipsDiagram" name="compactRelationshipsDiagram">
+<area shape="rect" id="node1" href="tables/dtb_authority_role.html" target="_top" title="dtb_authority_role" alt="" coords="598,1423,826,1599">
+<area shape="rect" id="node21" href="tables/dtb_member.html" target="_top" title="dtb_member" alt="" coords="273,2302,472,2507">
+<area shape="rect" id="node39" href="tables/mtb_authority.html" target="_top" title="mtb_authority" alt="" coords="5,2360,204,2478">
+<area shape="rect" id="node2" href="tables/dtb_base_info.html" target="_top" title="dtb_base_info" alt="" coords="541,820,883,996">
+<area shape="rect" id="node40" href="tables/mtb_country.html" target="_top" title="mtb_country" alt="" coords="273,688,472,806">
+<area shape="rect" id="node46" href="tables/mtb_pref.html" target="_top" title="mtb_pref" alt="" coords="273,1010,472,1127">
+<area shape="rect" id="node3" href="tables/dtb_block.html" target="_top" title="dtb_block" alt="" coords="990,2351,1189,2527">
+<area shape="rect" id="node43" href="tables/mtb_device_type.html" target="_top" title="mtb_device_type" alt="" coords="605,2207,819,2324">
+<area shape="rect" id="node4" href="tables/dtb_block_position.html" target="_top" title="dtb_block_position" alt="" coords="1307,2404,1535,2580">
+<area shape="rect" id="node18" href="tables/dtb_layout.html" target="_top" title="dtb_layout" alt="" coords="990,2544,1189,2691">
+<area shape="rect" id="node5" href="tables/dtb_cart.html" target="_top" title="dtb_cart" alt="" coords="1322,32,1521,238">
+<area shape="rect" id="node11" href="tables/dtb_customer.html" target="_top" title="dtb_customer" alt="" coords="611,100,813,570">
+<area shape="rect" id="node6" href="tables/dtb_cart_item.html" target="_top" title="dtb_cart_item" alt="" coords="1605,196,1803,372">
+<area shape="rect" id="node31" href="tables/dtb_product_class.html" target="_top" title="dtb_product_class" alt="" coords="1310,1720,1533,2102">
+<area shape="rect" id="node7" href="tables/dtb_category.html" target="_top" title="dtb_category" alt="" coords="612,2608,812,2784">
+<area shape="rect" id="node8" href="tables/dtb_class_category.html" target="_top" title="dtb_class_category" alt="" coords="976,1823,1203,1999">
+<area shape="rect" id="node9" href="tables/dtb_class_name.html" target="_top" title="dtb_class_name" alt="" coords="610,1876,814,2023">
+<area shape="rect" id="node10" href="tables/dtb_csv.html" target="_top" title="dtb_csv" alt="" coords="602,3686,822,3862">
+<area shape="rect" id="node41" href="tables/mtb_csv_type.html" target="_top" title="mtb_csv_type" alt="" coords="273,3715,472,3832">
+<area shape="rect" id="node42" href="tables/mtb_customer_status.html" target="_top" title="mtb_customer_status" alt="" coords="248,130,497,247">
+<area shape="rect" id="node44" href="tables/mtb_job.html" target="_top" title="mtb_job" alt="" coords="273,516,472,634">
+<area shape="rect" id="node50" href="tables/mtb_sex.html" target="_top" title="mtb_sex" alt="" coords="273,303,472,420">
+<area shape="rect" id="node12" href="tables/dtb_customer_address.html" target="_top" title="dtb_customer_address" alt="" coords="961,52,1217,258">
+<area shape="rect" id="node13" href="tables/dtb_customer_favorite_product.html" target="_top" title="dtb_customer_favorite_product" alt="" coords="927,856,1252,1032">
+<area shape="rect" id="node29" href="tables/dtb_product.html" target="_top" title="dtb_product" alt="" coords="613,3294,811,3470">
+<area shape="rect" id="node14" href="tables/dtb_delivery.html" target="_top" title="dtb_delivery" alt="" coords="613,1230,811,1406">
+<area shape="rect" id="node49" href="tables/mtb_sale_type.html" target="_top" title="mtb_sale_type" alt="" coords="273,1216,472,1334">
+<area shape="rect" id="node15" href="tables/dtb_delivery_duration.html" target="_top" title="dtb_delivery_duration" alt="" coords="962,2016,1217,2134">
+<area shape="rect" id="node16" href="tables/dtb_delivery_fee.html" target="_top" title="dtb_delivery_fee" alt="" coords="983,1194,1195,1370">
+<area shape="rect" id="node17" href="tables/dtb_delivery_time.html" target="_top" title="dtb_delivery_time" alt="" coords="977,1423,1201,1570">
+<area shape="rect" id="node19" href="tables/dtb_mail_history.html" target="_top" title="dtb_mail_history" alt="" coords="1315,1468,1528,1644">
+<area shape="rect" id="node23" href="tables/dtb_order.html" target="_top" title="dtb_order" alt="" coords="969,275,1210,803">
+<area shape="rect" id="node20" href="tables/dtb_mail_template.html" target="_top" title="dtb_mail_template" alt="" coords="597,3130,827,3276">
+<area shape="rect" id="node53" href="tables/mtb_work.html" target="_top" title="mtb_work" alt="" coords="5,2226,204,2343">
+<area shape="rect" id="node22" href="tables/dtb_news.html" target="_top" title="dtb_news" alt="" coords="613,2966,811,3112">
+<area shape="rect" id="node27" href="tables/dtb_payment.html" target="_top" title="dtb_payment" alt="" coords="613,1616,811,1763">
+<area shape="rect" id="node24" href="tables/dtb_order_item.html" target="_top" title="dtb_order_item" alt="" coords="1592,664,1816,1016">
+<area shape="rect" id="node35" href="tables/dtb_shipping.html" target="_top" title="dtb_shipping" alt="" coords="1322,400,1521,664">
+<area shape="rect" id="node45" href="tables/mtb_order_item_type.html" target="_top" title="mtb_order_item_type" alt="" coords="1297,951,1546,1068">
+<area shape="rect" id="node48" href="tables/mtb_rounding_type.html" target="_top" title="mtb_rounding_type" alt="" coords="1304,1210,1539,1327">
+<area shape="rect" id="node51" href="tables/mtb_tax_display_type.html" target="_top" title="mtb_tax_display_type" alt="" coords="1296,816,1547,934">
+<area shape="rect" id="node52" href="tables/mtb_tax_type.html" target="_top" title="mtb_tax_type" alt="" coords="1322,682,1521,799">
+<area shape="rect" id="node25" href="tables/dtb_page.html" target="_top" title="dtb_page" alt="" coords="990,3384,1189,3560">
+<area shape="rect" id="node26" href="tables/dtb_page_layout.html" target="_top" title="dtb_page_layout" alt="" coords="1316,3064,1527,3211">
+<area shape="rect" id="node28" href="tables/dtb_payment_option.html" target="_top" title="dtb_payment_option" alt="" coords="967,1587,1211,1734">
+<area shape="rect" id="node47" href="tables/mtb_product_status.html" target="_top" title="mtb_product_status" alt="" coords="253,3352,492,3470">
+<area shape="rect" id="node30" href="tables/dtb_product_category.html" target="_top" title="dtb_product_category" alt="" coords="963,3160,1215,3307">
+<area shape="rect" id="node32" href="tables/dtb_product_image.html" target="_top" title="dtb_product_image" alt="" coords="973,2967,1205,3143">
+<area shape="rect" id="node33" href="tables/dtb_product_stock.html" target="_top" title="dtb_product_stock" alt="" coords="1591,2620,1817,2796">
+<area shape="rect" id="node34" href="tables/dtb_product_tag.html" target="_top" title="dtb_product_tag" alt="" coords="984,2744,1195,2950">
+<area shape="rect" id="node36" href="tables/dtb_tag.html" target="_top" title="dtb_tag" alt="" coords="613,2378,811,2495">
+<area shape="rect" id="node37" href="tables/dtb_tax_rule.html" target="_top" title="dtb_tax_rule" alt="" coords="1605,1336,1803,1630">
+<area shape="rect" id="node38" href="tables/dtb_template.html" target="_top" title="dtb_template" alt="" coords="990,2187,1189,2334">
+<area shape="rect" id="node54" href="tables/plg_admin_record.html" target="_top" title="plg_admin_record" alt="" coords="602,2802,822,2948">
+</map>
+                                        <a name='diagram'><img id="compactDegreeImg" src="diagrams/summary/relationships.real.compact.png" usemap="#compactRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="largeDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="largeRelationshipsDiagram" name="largeRelationshipsDiagram">
+<area shape="rect" id="node1" href="tables/dtb_authority_role.html" target="_top" title="dtb_authority_role" alt="" coords="598,3606,826,3875">
+<area shape="rect" id="node21" href="tables/dtb_member.html" target="_top" title="dtb_member" alt="" coords="273,1877,472,2351">
+<area shape="rect" id="node39" href="tables/mtb_authority.html" target="_top" title="mtb_authority" alt="" coords="5,2790,204,2971">
+<area shape="rect" id="node2" href="tables/dtb_base_info.html" target="_top" title="dtb_base_info" alt="" coords="541,5533,883,6623">
+<area shape="rect" id="node40" href="tables/mtb_country.html" target="_top" title="mtb_country" alt="" coords="273,5403,472,5585">
+<area shape="rect" id="node46" href="tables/mtb_pref.html" target="_top" title="mtb_pref" alt="" coords="273,6637,472,6818">
+<area shape="rect" id="node3" href="tables/dtb_block.html" target="_top" title="dtb_block" alt="" coords="990,7623,1189,7951">
+<area shape="rect" id="node43" href="tables/mtb_device_type.html" target="_top" title="mtb_device_type" alt="" coords="605,7510,819,7691">
+<area shape="rect" id="node4" href="tables/dtb_block_position.html" target="_top" title="dtb_block_position" alt="" coords="1307,7130,1535,7341">
+<area shape="rect" id="node18" href="tables/dtb_layout.html" target="_top" title="dtb_layout" alt="" coords="990,7969,1189,8209">
+<area shape="rect" id="node5" href="tables/dtb_cart.html" target="_top" title="dtb_cart" alt="" coords="1322,3927,1521,4343">
+<area shape="rect" id="node11" href="tables/dtb_customer.html" target="_top" title="dtb_customer" alt="" coords="611,4326,813,5299">
+<area shape="rect" id="node6" href="tables/dtb_cart_item.html" target="_top" title="dtb_cart_item" alt="" coords="1605,2409,1803,2678">
+<area shape="rect" id="node31" href="tables/dtb_product_class.html" target="_top" title="dtb_product_class" alt="" coords="1310,978,1533,1629">
+<area shape="rect" id="node7" href="tables/dtb_category.html" target="_top" title="dtb_category" alt="" coords="612,2469,812,2797">
+<area shape="rect" id="node8" href="tables/dtb_class_category.html" target="_top" title="dtb_class_category" alt="" coords="976,562,1203,919">
+<area shape="rect" id="node9" href="tables/dtb_class_name.html" target="_top" title="dtb_class_name" alt="" coords="610,105,814,403">
+<area shape="rect" id="node10" href="tables/dtb_csv.html" target="_top" title="dtb_csv" alt="" coords="602,3893,822,4309">
+<area shape="rect" id="node41" href="tables/mtb_csv_type.html" target="_top" title="mtb_csv_type" alt="" coords="273,3922,472,4103">
+<area shape="rect" id="node42" href="tables/mtb_customer_status.html" target="_top" title="mtb_customer_status" alt="" coords="248,4355,497,4537">
+<area shape="rect" id="node44" href="tables/mtb_job.html" target="_top" title="mtb_job" alt="" coords="273,5105,472,5286">
+<area shape="rect" id="node50" href="tables/mtb_sex.html" target="_top" title="mtb_sex" alt="" coords="273,4789,472,4970">
+<area shape="rect" id="node12" href="tables/dtb_customer_address.html" target="_top" title="dtb_customer_address" alt="" coords="961,6162,1217,6695">
+<area shape="rect" id="node13" href="tables/dtb_customer_favorite_product.html" target="_top" title="dtb_customer_favorite_product" alt="" coords="927,3798,1252,4038">
+<area shape="rect" id="node29" href="tables/dtb_product.html" target="_top" title="dtb_product" alt="" coords="613,3101,811,3517">
+<area shape="rect" id="node14" href="tables/dtb_delivery.html" target="_top" title="dtb_delivery" alt="" coords="613,421,811,837">
+<area shape="rect" id="node49" href="tables/mtb_sale_type.html" target="_top" title="mtb_sale_type" alt="" coords="273,254,472,435">
+<area shape="rect" id="node15" href="tables/dtb_delivery_duration.html" target="_top" title="dtb_delivery_duration" alt="" coords="962,1253,1217,1463">
+<area shape="rect" id="node16" href="tables/dtb_delivery_fee.html" target="_top" title="dtb_delivery_fee" alt="" coords="983,3570,1195,3781">
+<area shape="rect" id="node17" href="tables/dtb_delivery_time.html" target="_top" title="dtb_delivery_time" alt="" coords="977,937,1201,1235">
+<area shape="rect" id="node19" href="tables/dtb_mail_history.html" target="_top" title="dtb_mail_history" alt="" coords="1315,3494,1528,3793">
+<area shape="rect" id="node23" href="tables/dtb_order.html" target="_top" title="dtb_order" alt="" coords="969,4849,1210,6145">
+<area shape="rect" id="node20" href="tables/dtb_mail_template.html" target="_top" title="dtb_mail_template" alt="" coords="597,854,827,1153">
+<area shape="rect" id="node53" href="tables/mtb_work.html" target="_top" title="mtb_work" alt="" coords="5,1906,204,2087">
+<area shape="rect" id="node22" href="tables/dtb_news.html" target="_top" title="dtb_news" alt="" coords="613,1170,811,1557">
+<area shape="rect" id="node27" href="tables/dtb_payment.html" target="_top" title="dtb_payment" alt="" coords="613,1953,811,2427">
+<area shape="rect" id="node24" href="tables/dtb_order_item.html" target="_top" title="dtb_order_item" alt="" coords="1592,6023,1816,6821">
+<area shape="rect" id="node35" href="tables/dtb_shipping.html" target="_top" title="dtb_shipping" alt="" coords="1322,5577,1521,6433">
+<area shape="rect" id="node45" href="tables/mtb_order_item_type.html" target="_top" title="mtb_order_item_type" alt="" coords="1297,7755,1546,7937">
+<area shape="rect" id="node48" href="tables/mtb_rounding_type.html" target="_top" title="mtb_rounding_type" alt="" coords="1304,6733,1539,6914">
+<area shape="rect" id="node51" href="tables/mtb_tax_display_type.html" target="_top" title="mtb_tax_display_type" alt="" coords="1296,7557,1547,7738">
+<area shape="rect" id="node52" href="tables/mtb_tax_type.html" target="_top" title="mtb_tax_type" alt="" coords="1322,7358,1521,7539">
+<area shape="rect" id="node25" href="tables/dtb_page.html" target="_top" title="dtb_page" alt="" coords="990,6845,1189,7319">
+<area shape="rect" id="node26" href="tables/dtb_page_layout.html" target="_top" title="dtb_page_layout" alt="" coords="1316,6931,1527,7113">
+<area shape="rect" id="node28" href="tables/dtb_payment_option.html" target="_top" title="dtb_payment_option" alt="" coords="967,1718,1211,1870">
+<area shape="rect" id="node47" href="tables/mtb_product_status.html" target="_top" title="mtb_product_status" alt="" coords="253,3159,492,3341">
+<area shape="rect" id="node30" href="tables/dtb_product_category.html" target="_top" title="dtb_product_category" alt="" coords="963,2563,1215,2715">
+<area shape="rect" id="node32" href="tables/dtb_product_image.html" target="_top" title="dtb_product_image" alt="" coords="973,1887,1205,2157">
+<area shape="rect" id="node33" href="tables/dtb_product_stock.html" target="_top" title="dtb_product_stock" alt="" coords="1591,442,1817,711">
+<area shape="rect" id="node34" href="tables/dtb_product_tag.html" target="_top" title="dtb_product_tag" alt="" coords="984,2174,1195,2414">
+<area shape="rect" id="node36" href="tables/dtb_tag.html" target="_top" title="dtb_tag" alt="" coords="613,1718,811,1899">
+<area shape="rect" id="node37" href="tables/dtb_tax_rule.html" target="_top" title="dtb_tax_rule" alt="" coords="1605,3847,1803,4293">
+<area shape="rect" id="node38" href="tables/dtb_template.html" target="_top" title="dtb_template" alt="" coords="990,7337,1189,7606">
+<area shape="rect" id="node54" href="tables/plg_admin_record.html" target="_top" title="plg_admin_record" alt="" coords="602,2814,822,3083">
+</map>
+                                        <a name='diagram'><img id="largeDegreeImg" src="diagrams/summary/relationships.real.large.png" usemap="#largeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="bower/pdfmake/pdfmake.min.js"></script>
+        <script src="bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="bower/codemirror/codemirror.js"></script>
+        <script src="bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="relationships.js"></script>
+        <script src="schemaSpy.js"></script>
+    </body>
+</html>

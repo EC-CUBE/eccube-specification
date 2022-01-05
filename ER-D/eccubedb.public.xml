@@ -1,0 +1,1640 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="eccubedb" schema="public" type="PostgreSQL - 10.12 (Debian 10.12-2.pgdg90+1)">
+   <sequences>
+      <sequence increment="1" name="dtb_authority_role_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_base_info_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_block_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_cart_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_cart_item_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_category_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_class_category_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_class_name_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_csv_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_customer_address_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_customer_favorite_product_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_customer_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_delivery_duration_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_delivery_fee_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_delivery_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_delivery_time_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_layout_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_mail_history_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_mail_template_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_member_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_news_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_order_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_order_item_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_page_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_payment_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_plugin_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_product_class_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_product_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_product_image_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_product_stock_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_product_tag_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_shipping_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_tag_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_tax_rule_id_seq" startValue="1"/>
+      <sequence increment="1" name="dtb_template_id_seq" startValue="1"/>
+      <sequence increment="1" name="plg_admin_record_config_id_seq" startValue="1"/>
+      <sequence increment="1" name="plg_admin_record_id_seq" startValue="1"/>
+   </sequences>
+   <tables>
+      <table name="dtb_authority_role" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_authority_role_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="authority_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_4a1f70b181ec865b" implied="false" onDeleteCascade="false" schema="public" table="mtb_authority"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_4a1f70b161220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="deny_url" nullable="false" remarks="" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_authority_role_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_4a1f70b161220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+         <index name="idx_4a1f70b181ec865b" unique="false">
+            <column ascending="true" name="authority_id"/>
+         </index>
+      </table>
+      <table name="dtb_base_info" numRows="1" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_base_info_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="country_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_1d3655f4f92f3e70" implied="false" onDeleteCascade="false" schema="public" table="mtb_country"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="pref_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_1d3655f4e171ef5f" implied="false" onDeleteCascade="false" schema="public" table="mtb_pref"/>
+         </column>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="3" name="company_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="4" name="company_kana" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="5" name="postal_code" nullable="true" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="6" name="addr01" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="7" name="addr02" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="8" name="phone_number" nullable="true" remarks="" size="14" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="9" name="business_hour" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="10" name="email01" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="11" name="email02" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="12" name="email03" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="13" name="email04" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="14" name="shop_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="15" name="shop_kana" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="16" name="shop_name_eng" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="18" name="good_traded" nullable="true" remarks="" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="19" name="message" nullable="true" remarks="" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::numeric" digits="2" id="20" name="delivery_free_amount" nullable="true" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="delivery_free_quantity" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="22" name="option_mypage_order_status_display" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="23" name="option_nostock_hidden" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="24" name="option_favorite_product" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="25" name="option_product_delivery_fee" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="26" name="option_product_tax_rule" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="27" name="option_customer_activate" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="28" name="option_remember_me" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="29" name="authentication_key" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="30" name="php_path" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="31" name="option_point" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="'1'::numeric" digits="0" id="32" name="basic_point_rate" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="'1'::numeric" digits="0" id="33" name="point_conversion_rate" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="34" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_base_info_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_1d3655f4e171ef5f" unique="false">
+            <column ascending="true" name="pref_id"/>
+         </index>
+         <index name="idx_1d3655f4f92f3e70" unique="false">
+            <column ascending="true" name="country_id"/>
+         </index>
+      </table>
+      <table name="dtb_block" numRows="14" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_block_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="block_id" foreignKey="fk_35dcd731e9ed820c" implied="false" onDeleteCascade="false" schema="public" table="dtb_block_position"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="device_type_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_6b54dcbd4ffa550e" implied="false" onDeleteCascade="false" schema="public" table="mtb_device_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="2" name="block_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="file_name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="4" name="use_controller" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="5" name="deletable" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_block_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="device_type_id" unique="true">
+            <column ascending="true" name="device_type_id"/>
+            <column ascending="true" name="file_name"/>
+         </index>
+         <index name="idx_6b54dcbd4ffa550e" unique="false">
+            <column ascending="true" name="device_type_id"/>
+         </index>
+      </table>
+      <table name="dtb_block_position" numRows="19" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="section" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="block_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_35dcd731e9ed820c" implied="false" onDeleteCascade="false" schema="public" table="dtb_block"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="layout_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_35dcd7318c22aa1a" implied="false" onDeleteCascade="false" schema="public" table="dtb_layout"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="block_row" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="section" sequenceNumberInPK="1"/>
+         <primaryKey column="block_id" sequenceNumberInPK="2"/>
+         <primaryKey column="layout_id" sequenceNumberInPK="3"/>
+         <index name="dtb_block_position_pkey" unique="true">
+            <column ascending="true" name="section"/>
+            <column ascending="true" name="block_id"/>
+            <column ascending="true" name="layout_id"/>
+         </index>
+         <index name="idx_35dcd7318c22aa1a" unique="false">
+            <column ascending="true" name="layout_id"/>
+         </index>
+         <index name="idx_35dcd731e9ed820c" unique="false">
+            <column ascending="true" name="block_id"/>
+         </index>
+      </table>
+      <table name="dtb_cart" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_cart_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="cart_id" foreignKey="fk_b0228f741ad5cdbf" implied="false" onDeleteCascade="true" schema="public" table="dtb_cart_item"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="customer_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_fc3c24f09395c3f3" implied="false" onDeleteCascade="false" schema="public" table="dtb_customer"/>
+         </column>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="2" name="cart_key" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="3" name="pre_order_id" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="2" id="4" name="total_price" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="2" id="5" name="delivery_fee_total" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="sort_no" nullable="true" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="0" id="9" name="add_point" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="0" id="10" name="use_point" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_cart_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="dtb_cart_pre_order_id_idx" unique="true">
+            <column ascending="true" name="pre_order_id"/>
+         </index>
+         <index name="dtb_cart_update_date_idx" unique="false">
+            <column ascending="true" name="update_date"/>
+         </index>
+         <index name="idx_fc3c24f09395c3f3" unique="false">
+            <column ascending="true" name="customer_id"/>
+         </index>
+      </table>
+      <table name="dtb_cart_item" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_cart_item_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="product_class_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_b0228f7421b06187" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_class"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="cart_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_b0228f741ad5cdbf" implied="false" onDeleteCascade="true" schema="public" table="dtb_cart"/>
+         </column>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="2" id="3" name="price" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="0" id="4" name="quantity" nullable="false" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="NULL::numeric" digits="0" id="5" name="point_rate" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_cart_item_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_b0228f741ad5cdbf" unique="false">
+            <column ascending="true" name="cart_id"/>
+         </index>
+         <index name="idx_b0228f7421b06187" unique="false">
+            <column ascending="true" name="product_class_id"/>
+         </index>
+      </table>
+      <table name="dtb_category" numRows="6" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_category_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="parent_category_id" foreignKey="fk_5ed2c2b796a8f92" implied="false" onDeleteCascade="false" schema="public" table="dtb_category"/>
+            <child column="category_id" foreignKey="fk_b057789112469de2" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_category"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="parent_category_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_5ed2c2b796a8f92" implied="false" onDeleteCascade="false" schema="public" table="dtb_category"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_5ed2c2b61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="category_name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="hierarchy" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="sort_no" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_category_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_5ed2c2b61220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+         <index name="idx_5ed2c2b796a8f92" unique="false">
+            <column ascending="true" name="parent_category_id"/>
+         </index>
+      </table>
+      <table name="dtb_class_category" numRows="6" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_class_category_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="class_category_id1" foreignKey="fk_1a11d1ba248d128" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_class"/>
+            <child column="class_category_id2" foreignKey="fk_1a11d1ba9b418092" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_class"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="class_name_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_9b0d1dbab462fb2a" implied="false" onDeleteCascade="false" schema="public" table="dtb_class_name"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_9b0d1dba61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="3" name="backend_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="sort_no" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="6" name="visible" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_class_category_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_9b0d1dba61220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+         <index name="idx_9b0d1dbab462fb2a" unique="false">
+            <column ascending="true" name="class_name_id"/>
+         </index>
+      </table>
+      <table name="dtb_class_name" numRows="2" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_class_name_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="class_name_id" foreignKey="fk_9b0d1dbab462fb2a" implied="false" onDeleteCascade="false" schema="public" table="dtb_class_category"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_187c95ad61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="2" name="backend_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="sort_no" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_class_name_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_187c95ad61220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+      </table>
+      <table name="dtb_csv" numRows="205" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_csv_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="csv_type_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_f55f48c3e8507796" implied="false" onDeleteCascade="false" schema="public" table="mtb_csv_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_f55f48c361220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="entity_name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="field_name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="5" name="reference_field_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="disp_name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="8" name="enabled" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_csv_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_f55f48c361220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+         <index name="idx_f55f48c3e8507796" unique="false">
+            <column ascending="true" name="csv_type_id"/>
+         </index>
+      </table>
+      <table name="dtb_customer" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_customer_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="customer_id" foreignKey="fk_fc3c24f09395c3f3" implied="false" onDeleteCascade="false" schema="public" table="dtb_cart"/>
+            <child column="customer_id" foreignKey="fk_6c38c0f89395c3f3" implied="false" onDeleteCascade="false" schema="public" table="dtb_customer_address"/>
+            <child column="customer_id" foreignKey="fk_ed6313839395c3f3" implied="false" onDeleteCascade="false" schema="public" table="dtb_customer_favorite_product"/>
+            <child column="customer_id" foreignKey="fk_1d66d8079395c3f3" implied="false" onDeleteCascade="false" schema="public" table="dtb_order"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="customer_status_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_8298bbe3c00af8a7" implied="false" onDeleteCascade="false" schema="public" table="mtb_customer_status"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sex_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_8298bbe35a2db2a0" implied="false" onDeleteCascade="false" schema="public" table="mtb_sex"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="job_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_8298bbe3be04ea9" implied="false" onDeleteCascade="false" schema="public" table="mtb_job"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="country_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_8298bbe3f92f3e70" implied="false" onDeleteCascade="false" schema="public" table="mtb_country"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="pref_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_8298bbe3e171ef5f" implied="false" onDeleteCascade="false" schema="public" table="mtb_pref"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="name01" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="name02" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="8" name="kana01" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="9" name="kana02" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="10" name="company_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="11" name="postal_code" nullable="true" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="12" name="addr01" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="13" name="addr02" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="email" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="15" name="phone_number" nullable="true" remarks="" size="14" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::timestamp with time zone" digits="0" id="16" name="birth" nullable="true" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="password" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="18" name="salt" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="secret_key" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::timestamp with time zone" digits="0" id="20" name="first_buy_date" nullable="true" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="NULL::timestamp with time zone" digits="0" id="21" name="last_buy_date" nullable="true" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="0" id="22" name="buy_times" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="2" id="23" name="buy_total" nullable="true" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="24" name="note" nullable="true" remarks="" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="25" name="reset_key" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::timestamp with time zone" digits="0" id="26" name="reset_expire" nullable="true" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="0" id="27" name="point" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_customer_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="dtb_customer_buy_times_idx" unique="false">
+            <column ascending="true" name="buy_times"/>
+         </index>
+         <index name="dtb_customer_buy_total_idx" unique="false">
+            <column ascending="true" name="buy_total"/>
+         </index>
+         <index name="dtb_customer_create_date_idx" unique="false">
+            <column ascending="true" name="create_date"/>
+         </index>
+         <index name="dtb_customer_email_idx" unique="false">
+            <column ascending="true" name="email"/>
+         </index>
+         <index name="dtb_customer_last_buy_date_idx" unique="false">
+            <column ascending="true" name="last_buy_date"/>
+         </index>
+         <index name="dtb_customer_update_date_idx" unique="false">
+            <column ascending="true" name="update_date"/>
+         </index>
+         <index name="idx_8298bbe35a2db2a0" unique="false">
+            <column ascending="true" name="sex_id"/>
+         </index>
+         <index name="idx_8298bbe3be04ea9" unique="false">
+            <column ascending="true" name="job_id"/>
+         </index>
+         <index name="idx_8298bbe3c00af8a7" unique="false">
+            <column ascending="true" name="customer_status_id"/>
+         </index>
+         <index name="idx_8298bbe3e171ef5f" unique="false">
+            <column ascending="true" name="pref_id"/>
+         </index>
+         <index name="idx_8298bbe3f92f3e70" unique="false">
+            <column ascending="true" name="country_id"/>
+         </index>
+         <index name="secret_key" unique="true">
+            <column ascending="true" name="secret_key"/>
+         </index>
+      </table>
+      <table name="dtb_customer_address" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_customer_address_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="customer_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_6c38c0f89395c3f3" implied="false" onDeleteCascade="false" schema="public" table="dtb_customer"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="country_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_6c38c0f8f92f3e70" implied="false" onDeleteCascade="false" schema="public" table="mtb_country"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="pref_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_6c38c0f8e171ef5f" implied="false" onDeleteCascade="false" schema="public" table="mtb_pref"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="name01" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="name02" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="6" name="kana01" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="7" name="kana02" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="8" name="company_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="9" name="postal_code" nullable="true" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="10" name="addr01" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="11" name="addr02" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="12" name="phone_number" nullable="true" remarks="" size="14" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_customer_address_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_6c38c0f89395c3f3" unique="false">
+            <column ascending="true" name="customer_id"/>
+         </index>
+         <index name="idx_6c38c0f8e171ef5f" unique="false">
+            <column ascending="true" name="pref_id"/>
+         </index>
+         <index name="idx_6c38c0f8f92f3e70" unique="false">
+            <column ascending="true" name="country_id"/>
+         </index>
+      </table>
+      <table name="dtb_customer_favorite_product" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_customer_favorite_product_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="customer_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_ed6313839395c3f3" implied="false" onDeleteCascade="false" schema="public" table="dtb_customer"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="product_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_ed6313834584665a" implied="false" onDeleteCascade="false" schema="public" table="dtb_product"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_customer_favorite_product_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_ed6313834584665a" unique="false">
+            <column ascending="true" name="product_id"/>
+         </index>
+         <index name="idx_ed6313839395c3f3" unique="false">
+            <column ascending="true" name="customer_id"/>
+         </index>
+      </table>
+      <table name="dtb_delivery" numRows="2" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_delivery_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="delivery_id" foreignKey="fk_491552412136921" implied="false" onDeleteCascade="false" schema="public" table="dtb_delivery_fee"/>
+            <child column="delivery_id" foreignKey="fk_e80ee3a612136921" implied="false" onDeleteCascade="false" schema="public" table="dtb_delivery_time"/>
+            <child column="delivery_id" foreignKey="fk_5631540d12136921" implied="false" onDeleteCascade="false" schema="public" table="dtb_payment_option"/>
+            <child column="delivery_id" foreignKey="fk_2ebd22ce12136921" implied="false" onDeleteCascade="false" schema="public" table="dtb_shipping"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_3420d9fa61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sale_type_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_3420d9fab0524e01" implied="false" onDeleteCascade="false" schema="public" table="mtb_sale_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="3" name="name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="4" name="service_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="5" name="description" nullable="true" remarks="" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="6" name="confirm_url" nullable="true" remarks="" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="sort_no" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="8" name="visible" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_delivery_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_3420d9fa61220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+         <index name="idx_3420d9fab0524e01" unique="false">
+            <column ascending="true" name="sale_type_id"/>
+         </index>
+      </table>
+      <table name="dtb_delivery_duration" numRows="9" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_delivery_duration_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="delivery_duration_id" foreignKey="fk_1a11d1baba4269e" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_class"/>
+         </column>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="1" name="name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="2" name="duration" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="sort_no" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_delivery_duration_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="dtb_delivery_fee" numRows="94" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_delivery_fee_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="delivery_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_491552412136921" implied="false" onDeleteCascade="false" schema="public" table="dtb_delivery"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="pref_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_4915524e171ef5f" implied="false" onDeleteCascade="false" schema="public" table="mtb_pref"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="3" name="fee" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_delivery_fee_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_491552412136921" unique="false">
+            <column ascending="true" name="delivery_id"/>
+         </index>
+         <index name="idx_4915524e171ef5f" unique="false">
+            <column ascending="true" name="pref_id"/>
+         </index>
+      </table>
+      <table name="dtb_delivery_time" numRows="2" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_delivery_time_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="delivery_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_e80ee3a612136921" implied="false" onDeleteCascade="false" schema="public" table="dtb_delivery"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="delivery_time" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="4" name="visible" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_delivery_time_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_e80ee3a612136921" unique="false">
+            <column ascending="true" name="delivery_id"/>
+         </index>
+      </table>
+      <table name="dtb_layout" numRows="3" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_layout_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="layout_id" foreignKey="fk_35dcd7318c22aa1a" implied="false" onDeleteCascade="false" schema="public" table="dtb_block_position"/>
+            <child column="layout_id" foreignKey="fk_f27999418c22aa1a" implied="false" onDeleteCascade="false" schema="public" table="dtb_page_layout"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="device_type_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_5a62aa7c4ffa550e" implied="false" onDeleteCascade="false" schema="public" table="mtb_device_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="2" name="layout_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_layout_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_5a62aa7c4ffa550e" unique="false">
+            <column ascending="true" name="device_type_id"/>
+         </index>
+      </table>
+      <table name="dtb_mail_history" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_mail_history_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="order_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_4870ab118d9f6d38" implied="false" onDeleteCascade="false" schema="public" table="dtb_order"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_4870ab1161220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="NULL::timestamp with time zone" digits="0" id="3" name="send_date" nullable="true" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="4" name="mail_subject" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="mail_body" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="mail_html_body" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_mail_history_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_4870ab1161220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+         <index name="idx_4870ab118d9f6d38" unique="false">
+            <column ascending="true" name="order_id"/>
+         </index>
+      </table>
+      <table name="dtb_mail_template" numRows="8" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_mail_template_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_1cb16db261220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="2" name="name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="3" name="file_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="4" name="mail_subject" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_mail_template_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_1cb16db261220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+      </table>
+      <table name="dtb_member" numRows="1" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_member_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="creator_id" foreignKey="fk_4a1f70b161220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_authority_role"/>
+            <child column="creator_id" foreignKey="fk_5ed2c2b61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_category"/>
+            <child column="creator_id" foreignKey="fk_9b0d1dba61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_class_category"/>
+            <child column="creator_id" foreignKey="fk_187c95ad61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_class_name"/>
+            <child column="creator_id" foreignKey="fk_f55f48c361220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_csv"/>
+            <child column="creator_id" foreignKey="fk_3420d9fa61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_delivery"/>
+            <child column="creator_id" foreignKey="fk_4870ab1161220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_mail_history"/>
+            <child column="creator_id" foreignKey="fk_1cb16db261220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_mail_template"/>
+            <child column="creator_id" foreignKey="fk_10bc3be661220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+            <child column="creator_id" foreignKey="fk_ea4c351761220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_news"/>
+            <child column="creator_id" foreignKey="fk_7aff628f61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_payment"/>
+            <child column="creator_id" foreignKey="fk_c49de22f61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_product"/>
+            <child column="creator_id" foreignKey="fk_1a11d1ba61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_class"/>
+            <child column="creator_id" foreignKey="fk_3267cc7a61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_image"/>
+            <child column="creator_id" foreignKey="fk_bc6c9e4561220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_stock"/>
+            <child column="creator_id" foreignKey="fk_4433e72161220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_tag"/>
+            <child column="creator_id" foreignKey="fk_2ebd22ce61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_shipping"/>
+            <child column="creator_id" foreignKey="fk_59f696de61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_tax_rule"/>
+            <child column="member_id" foreignKey="fk_4ed5bbe17597d3fe" implied="false" onDeleteCascade="false" schema="public" table="plg_admin_record"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="work_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_10bc3be6bb3453db" implied="false" onDeleteCascade="false" schema="public" table="mtb_work"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="authority_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_10bc3be681ec865b" implied="false" onDeleteCascade="false" schema="public" table="mtb_authority"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_10bc3be661220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="4" name="name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="5" name="department" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="login_id" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="password" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="8" name="salt" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="NULL::timestamp with time zone" digits="0" id="12" name="login_date" nullable="true" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_member_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_10bc3be661220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+         <index name="idx_10bc3be681ec865b" unique="false">
+            <column ascending="true" name="authority_id"/>
+         </index>
+         <index name="idx_10bc3be6bb3453db" unique="false">
+            <column ascending="true" name="work_id"/>
+         </index>
+      </table>
+      <table name="dtb_news" numRows="1" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_news_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_ea4c351761220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="NULL::timestamp with time zone" digits="0" id="2" name="publish_date" nullable="true" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="title" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="description" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="5" name="url" nullable="true" remarks="" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="6" name="link_method" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="9" name="visible" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_news_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_ea4c351761220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+      </table>
+      <table name="dtb_order" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_order_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="order_id" foreignKey="fk_4870ab118d9f6d38" implied="false" onDeleteCascade="false" schema="public" table="dtb_mail_history"/>
+            <child column="order_id" foreignKey="fk_a0c8c3ed8d9f6d38" implied="false" onDeleteCascade="false" schema="public" table="dtb_order_item"/>
+            <child column="order_id" foreignKey="fk_2ebd22ce8d9f6d38" implied="false" onDeleteCascade="false" schema="public" table="dtb_shipping"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="customer_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_1d66d8079395c3f3" implied="false" onDeleteCascade="false" schema="public" table="dtb_customer"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="country_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_1d66d807f92f3e70" implied="false" onDeleteCascade="false" schema="public" table="mtb_country"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="pref_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_1d66d807e171ef5f" implied="false" onDeleteCascade="false" schema="public" table="mtb_pref"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="sex_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_1d66d8075a2db2a0" implied="false" onDeleteCascade="false" schema="public" table="mtb_sex"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="job_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_1d66d807be04ea9" implied="false" onDeleteCascade="false" schema="public" table="mtb_job"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="payment_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_1d66d8074c3a3bb" implied="false" onDeleteCascade="false" schema="public" table="dtb_payment"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="device_type_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_1d66d8074ffa550e" implied="false" onDeleteCascade="false" schema="public" table="mtb_device_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="8" name="pre_order_id" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="9" name="order_no" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="10" name="message" nullable="true" remarks="" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="name01" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="name02" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="13" name="kana01" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="14" name="kana02" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="15" name="company_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="16" name="email" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="17" name="phone_number" nullable="true" remarks="" size="14" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="18" name="postal_code" nullable="true" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="19" name="addr01" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="20" name="addr02" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::timestamp with time zone" digits="0" id="21" name="birth" nullable="true" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="2" id="22" name="subtotal" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="2" id="23" name="discount" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="2" id="24" name="delivery_fee_total" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="2" id="25" name="charge" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="2" id="26" name="tax" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="2" id="27" name="total" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="2" id="28" name="payment_total" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="29" name="payment_method" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="30" name="note" nullable="true" remarks="" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="NULL::timestamp with time zone" digits="0" id="33" name="order_date" nullable="true" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="NULL::timestamp with time zone" digits="0" id="34" name="payment_date" nullable="true" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="35" name="currency_code" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="36" name="complete_message" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="37" name="complete_mail_message" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="0" id="38" name="add_point" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="0" id="39" name="use_point" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="40" name="order_status_id" nullable="true" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="41" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_order_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="dtb_order_email_idx" unique="false">
+            <column ascending="true" name="email"/>
+         </index>
+         <index name="dtb_order_order_date_idx" unique="false">
+            <column ascending="true" name="order_date"/>
+         </index>
+         <index name="dtb_order_order_no_idx" unique="false">
+            <column ascending="true" name="order_no"/>
+         </index>
+         <index name="dtb_order_payment_date_idx" unique="false">
+            <column ascending="true" name="payment_date"/>
+         </index>
+         <index name="dtb_order_pre_order_id_idx" unique="true">
+            <column ascending="true" name="pre_order_id"/>
+         </index>
+         <index name="dtb_order_update_date_idx" unique="false">
+            <column ascending="true" name="update_date"/>
+         </index>
+         <index name="idx_1d66d8074c3a3bb" unique="false">
+            <column ascending="true" name="payment_id"/>
+         </index>
+         <index name="idx_1d66d8074ffa550e" unique="false">
+            <column ascending="true" name="device_type_id"/>
+         </index>
+         <index name="idx_1d66d8075a2db2a0" unique="false">
+            <column ascending="true" name="sex_id"/>
+         </index>
+         <index name="idx_1d66d8079395c3f3" unique="false">
+            <column ascending="true" name="customer_id"/>
+         </index>
+         <index name="idx_1d66d807be04ea9" unique="false">
+            <column ascending="true" name="job_id"/>
+         </index>
+         <index name="idx_1d66d807d7707b45" unique="false">
+            <column ascending="true" name="order_status_id"/>
+         </index>
+         <index name="idx_1d66d807e171ef5f" unique="false">
+            <column ascending="true" name="pref_id"/>
+         </index>
+         <index name="idx_1d66d807f92f3e70" unique="false">
+            <column ascending="true" name="country_id"/>
+         </index>
+      </table>
+      <table name="dtb_order_item" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_order_item_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="order_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_a0c8c3ed8d9f6d38" implied="false" onDeleteCascade="false" schema="public" table="dtb_order"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="product_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_a0c8c3ed4584665a" implied="false" onDeleteCascade="false" schema="public" table="dtb_product"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="product_class_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_a0c8c3ed21b06187" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_class"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="shipping_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_a0c8c3ed4887f3f8" implied="false" onDeleteCascade="false" schema="public" table="dtb_shipping"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="rounding_type_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_a0c8c3ed1bd5c574" implied="false" onDeleteCascade="false" schema="public" table="mtb_rounding_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="tax_type_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_a0c8c3ed84042c99" implied="false" onDeleteCascade="false" schema="public" table="mtb_tax_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="tax_display_type_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_a0c8c3eda2505856" implied="false" onDeleteCascade="false" schema="public" table="mtb_tax_display_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="order_item_type_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_a0c8c3edcad13ead" implied="false" onDeleteCascade="false" schema="public" table="mtb_order_item_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="product_name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="10" name="product_code" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="11" name="class_name1" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="12" name="class_name2" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="13" name="class_category_name1" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="14" name="class_category_name2" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="2" id="15" name="price" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="0" id="16" name="quantity" nullable="false" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="0" id="17" name="tax" nullable="false" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="0" id="18" name="tax_rate" nullable="false" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="0" id="19" name="tax_adjust" nullable="false" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="tax_rule_id" nullable="true" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="21" name="currency_code" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="22" name="processor_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::numeric" digits="0" id="23" name="point_rate" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_order_item_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_a0c8c3ed1bd5c574" unique="false">
+            <column ascending="true" name="rounding_type_id"/>
+         </index>
+         <index name="idx_a0c8c3ed21b06187" unique="false">
+            <column ascending="true" name="product_class_id"/>
+         </index>
+         <index name="idx_a0c8c3ed4584665a" unique="false">
+            <column ascending="true" name="product_id"/>
+         </index>
+         <index name="idx_a0c8c3ed4887f3f8" unique="false">
+            <column ascending="true" name="shipping_id"/>
+         </index>
+         <index name="idx_a0c8c3ed84042c99" unique="false">
+            <column ascending="true" name="tax_type_id"/>
+         </index>
+         <index name="idx_a0c8c3ed8d9f6d38" unique="false">
+            <column ascending="true" name="order_id"/>
+         </index>
+         <index name="idx_a0c8c3eda2505856" unique="false">
+            <column ascending="true" name="tax_display_type_id"/>
+         </index>
+         <index name="idx_a0c8c3edcad13ead" unique="false">
+            <column ascending="true" name="order_item_type_id"/>
+         </index>
+      </table>
+      <table name="dtb_order_pdf" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="member_id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="1" name="title" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="2" name="message1" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="3" name="message2" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="4" name="message3" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="5" name="note1" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="6" name="note2" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="7" name="note3" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="10" name="visible" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="member_id" sequenceNumberInPK="1"/>
+         <index name="dtb_order_pdf_pkey" unique="true">
+            <column ascending="true" name="member_id"/>
+         </index>
+      </table>
+      <table name="dtb_page" numRows="43" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_page_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="master_page_id" foreignKey="fk_e3951a67d0618e8c" implied="false" onDeleteCascade="false" schema="public" table="dtb_page"/>
+            <child column="page_id" foreignKey="fk_f2799941c4663e4" implied="false" onDeleteCascade="false" schema="public" table="dtb_page_layout"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="master_page_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_e3951a67d0618e8c" implied="false" onDeleteCascade="false" schema="public" table="dtb_page"/>
+         </column>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="2" name="page_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="url" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="4" name="file_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="1" digits="0" id="5" name="edit_type" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="6" name="author" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="7" name="description" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="8" name="keyword" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="11" name="meta_robots" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="12" name="meta_tags" nullable="true" remarks="" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_page_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="dtb_page_url_idx" unique="false">
+            <column ascending="true" name="url"/>
+         </index>
+         <index name="idx_e3951a67d0618e8c" unique="false">
+            <column ascending="true" name="master_page_id"/>
+         </index>
+      </table>
+      <table name="dtb_page_layout" numRows="43" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="page_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_f2799941c4663e4" implied="false" onDeleteCascade="false" schema="public" table="dtb_page"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="layout_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_f27999418c22aa1a" implied="false" onDeleteCascade="false" schema="public" table="dtb_layout"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="page_id" sequenceNumberInPK="1"/>
+         <primaryKey column="layout_id" sequenceNumberInPK="2"/>
+         <index name="dtb_page_layout_pkey" unique="true">
+            <column ascending="true" name="page_id"/>
+            <column ascending="true" name="layout_id"/>
+         </index>
+         <index name="idx_f27999418c22aa1a" unique="false">
+            <column ascending="true" name="layout_id"/>
+         </index>
+         <index name="idx_f2799941c4663e4" unique="false">
+            <column ascending="true" name="page_id"/>
+         </index>
+      </table>
+      <table name="dtb_payment" numRows="4" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_payment_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="payment_id" foreignKey="fk_1d66d8074c3a3bb" implied="false" onDeleteCascade="false" schema="public" table="dtb_order"/>
+            <child column="payment_id" foreignKey="fk_5631540d4c3a3bb" implied="false" onDeleteCascade="false" schema="public" table="dtb_payment_option"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_7aff628f61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="2" name="payment_method" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="2" id="3" name="charge" nullable="true" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="NULL::numeric" digits="2" id="4" name="rule_max" nullable="true" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="sort_no" nullable="true" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="6" name="fixed" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="7" name="payment_image" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::numeric" digits="2" id="8" name="rule_min" nullable="true" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="9" name="method_class" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="10" name="visible" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_payment_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_7aff628f61220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+      </table>
+      <table name="dtb_payment_option" numRows="5" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="delivery_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_5631540d12136921" implied="false" onDeleteCascade="false" schema="public" table="dtb_delivery"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="payment_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_5631540d4c3a3bb" implied="false" onDeleteCascade="false" schema="public" table="dtb_payment"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="delivery_id" sequenceNumberInPK="1"/>
+         <primaryKey column="payment_id" sequenceNumberInPK="2"/>
+         <index name="dtb_payment_option_pkey" unique="true">
+            <column ascending="true" name="delivery_id"/>
+            <column ascending="true" name="payment_id"/>
+         </index>
+         <index name="idx_5631540d12136921" unique="false">
+            <column ascending="true" name="delivery_id"/>
+         </index>
+         <index name="idx_5631540d4c3a3bb" unique="false">
+            <column ascending="true" name="payment_id"/>
+         </index>
+      </table>
+      <table name="dtb_plugin" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_plugin_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="code" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="3" name="enabled" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="version" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="source" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="6" name="initialized" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_plugin_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="dtb_product" numRows="2" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_product_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="product_id" foreignKey="fk_ed6313834584665a" implied="false" onDeleteCascade="false" schema="public" table="dtb_customer_favorite_product"/>
+            <child column="product_id" foreignKey="fk_a0c8c3ed4584665a" implied="false" onDeleteCascade="false" schema="public" table="dtb_order_item"/>
+            <child column="product_id" foreignKey="fk_b05778914584665a" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_category"/>
+            <child column="product_id" foreignKey="fk_1a11d1ba4584665a" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_class"/>
+            <child column="product_id" foreignKey="fk_3267cc7a4584665a" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_image"/>
+            <child column="product_id" foreignKey="fk_4433e7214584665a" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_tag"/>
+            <child column="product_id" foreignKey="fk_59f696de4584665a" implied="false" onDeleteCascade="false" schema="public" table="dtb_tax_rule"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_c49de22f61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="product_status_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_c49de22f557b630" implied="false" onDeleteCascade="false" schema="public" table="mtb_product_status"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="4" name="note" nullable="true" remarks="" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="5" name="description_list" nullable="true" remarks="" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="6" name="description_detail" nullable="true" remarks="" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="7" name="search_word" nullable="true" remarks="" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="free_area" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_product_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_c49de22f557b630" unique="false">
+            <column ascending="true" name="product_status_id"/>
+         </index>
+         <index name="idx_c49de22f61220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+      </table>
+      <table name="dtb_product_category" numRows="7" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="product_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_b05778914584665a" implied="false" onDeleteCascade="false" schema="public" table="dtb_product"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="category_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_b057789112469de2" implied="false" onDeleteCascade="false" schema="public" table="dtb_category"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="product_id" sequenceNumberInPK="1"/>
+         <primaryKey column="category_id" sequenceNumberInPK="2"/>
+         <index name="dtb_product_category_pkey" unique="true">
+            <column ascending="true" name="product_id"/>
+            <column ascending="true" name="category_id"/>
+         </index>
+         <index name="idx_b057789112469de2" unique="false">
+            <column ascending="true" name="category_id"/>
+         </index>
+         <index name="idx_b05778914584665a" unique="false">
+            <column ascending="true" name="product_id"/>
+         </index>
+      </table>
+      <table name="dtb_product_class" numRows="11" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_product_class_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="product_class_id" foreignKey="fk_b0228f7421b06187" implied="false" onDeleteCascade="false" schema="public" table="dtb_cart_item"/>
+            <child column="product_class_id" foreignKey="fk_a0c8c3ed21b06187" implied="false" onDeleteCascade="false" schema="public" table="dtb_order_item"/>
+            <child column="product_class_id" foreignKey="fk_bc6c9e4521b06187" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_stock"/>
+            <child column="product_class_id" foreignKey="fk_59f696de21b06187" implied="false" onDeleteCascade="false" schema="public" table="dtb_tax_rule"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="product_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_1a11d1ba4584665a" implied="false" onDeleteCascade="false" schema="public" table="dtb_product"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sale_type_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_1a11d1bab0524e01" implied="false" onDeleteCascade="false" schema="public" table="mtb_sale_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="class_category_id1" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_1a11d1ba248d128" implied="false" onDeleteCascade="false" schema="public" table="dtb_class_category"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="class_category_id2" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_1a11d1ba9b418092" implied="false" onDeleteCascade="false" schema="public" table="dtb_class_category"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="delivery_duration_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_1a11d1baba4269e" implied="false" onDeleteCascade="false" schema="public" table="dtb_delivery_duration"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_1a11d1ba61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="7" name="product_code" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::numeric" digits="0" id="8" name="stock" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="9" name="stock_unlimited" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="NULL::numeric" digits="0" id="10" name="sale_limit" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="NULL::numeric" digits="2" id="11" name="price01" nullable="true" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="price02" nullable="false" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="NULL::numeric" digits="2" id="13" name="delivery_fee" nullable="true" remarks="" size="12" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="14" name="visible" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="17" name="currency_code" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::numeric" digits="0" id="18" name="point_rate" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_product_class_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="dtb_product_class_price02_idx" unique="false">
+            <column ascending="true" name="price02"/>
+         </index>
+         <index name="dtb_product_class_stock_stock_unlimited_idx" unique="false">
+            <column ascending="true" name="stock"/>
+            <column ascending="true" name="stock_unlimited"/>
+         </index>
+         <index name="idx_1a11d1ba248d128" unique="false">
+            <column ascending="true" name="class_category_id1"/>
+         </index>
+         <index name="idx_1a11d1ba4584665a" unique="false">
+            <column ascending="true" name="product_id"/>
+         </index>
+         <index name="idx_1a11d1ba61220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+         <index name="idx_1a11d1ba9b418092" unique="false">
+            <column ascending="true" name="class_category_id2"/>
+         </index>
+         <index name="idx_1a11d1bab0524e01" unique="false">
+            <column ascending="true" name="sale_type_id"/>
+         </index>
+         <index name="idx_1a11d1baba4269e" unique="false">
+            <column ascending="true" name="delivery_duration_id"/>
+         </index>
+      </table>
+      <table name="dtb_product_image" numRows="6" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_product_image_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="product_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_3267cc7a4584665a" implied="false" onDeleteCascade="false" schema="public" table="dtb_product"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_3267cc7a61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="file_name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_product_image_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_3267cc7a4584665a" unique="false">
+            <column ascending="true" name="product_id"/>
+         </index>
+         <index name="idx_3267cc7a61220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+      </table>
+      <table name="dtb_product_stock" numRows="11" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_product_stock_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="product_class_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_bc6c9e4521b06187" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_class"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_bc6c9e4561220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="NULL::numeric" digits="0" id="3" name="stock" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_product_stock_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_bc6c9e4521b06187" unique="false">
+            <column ascending="true" name="product_class_id"/>
+         </index>
+         <index name="idx_bc6c9e4561220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+      </table>
+      <table name="dtb_product_tag" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_product_tag_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="product_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_4433e7214584665a" implied="false" onDeleteCascade="false" schema="public" table="dtb_product"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="tag_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_4433e721bad26311" implied="false" onDeleteCascade="false" schema="public" table="dtb_tag"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_4433e72161220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_product_tag_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_4433e7214584665a" unique="false">
+            <column ascending="true" name="product_id"/>
+         </index>
+         <index name="idx_4433e72161220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+         <index name="idx_4433e721bad26311" unique="false">
+            <column ascending="true" name="tag_id"/>
+         </index>
+      </table>
+      <table name="dtb_shipping" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_shipping_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="shipping_id" foreignKey="fk_a0c8c3ed4887f3f8" implied="false" onDeleteCascade="false" schema="public" table="dtb_order_item"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="order_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_2ebd22ce8d9f6d38" implied="false" onDeleteCascade="false" schema="public" table="dtb_order"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="country_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_2ebd22cef92f3e70" implied="false" onDeleteCascade="false" schema="public" table="mtb_country"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="pref_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_2ebd22cee171ef5f" implied="false" onDeleteCascade="false" schema="public" table="mtb_pref"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="delivery_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_2ebd22ce12136921" implied="false" onDeleteCascade="false" schema="public" table="dtb_delivery"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_2ebd22ce61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="name01" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="name02" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="8" name="kana01" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="9" name="kana02" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="10" name="company_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="11" name="phone_number" nullable="true" remarks="" size="14" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="12" name="postal_code" nullable="true" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="13" name="addr01" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="14" name="addr02" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="15" name="delivery_name" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="time_id" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="17" name="delivery_time" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::timestamp with time zone" digits="0" id="18" name="delivery_date" nullable="true" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="NULL::timestamp with time zone" digits="0" id="19" name="shipping_date" nullable="true" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="20" name="tracking_number" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="NULL::character varying" digits="0" id="21" name="note" nullable="true" remarks="" size="4000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="sort_no" nullable="true" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="NULL::timestamp with time zone" digits="0" id="25" name="mail_send_date" nullable="true" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_shipping_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_2ebd22ce12136921" unique="false">
+            <column ascending="true" name="delivery_id"/>
+         </index>
+         <index name="idx_2ebd22ce61220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+         <index name="idx_2ebd22ce8d9f6d38" unique="false">
+            <column ascending="true" name="order_id"/>
+         </index>
+         <index name="idx_2ebd22cee171ef5f" unique="false">
+            <column ascending="true" name="pref_id"/>
+         </index>
+         <index name="idx_2ebd22cef92f3e70" unique="false">
+            <column ascending="true" name="country_id"/>
+         </index>
+      </table>
+      <table name="dtb_tag" numRows="3" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_tag_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="tag_id" foreignKey="fk_4433e721bad26311" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_tag"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_tag_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="dtb_tax_rule" numRows="1" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_tax_rule_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="product_class_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_59f696de21b06187" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_class"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="creator_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_59f696de61220ea6" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="country_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_59f696def92f3e70" implied="false" onDeleteCascade="false" schema="public" table="mtb_country"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="pref_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_59f696dee171ef5f" implied="false" onDeleteCascade="false" schema="public" table="mtb_pref"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="product_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_59f696de4584665a" implied="false" onDeleteCascade="false" schema="public" table="dtb_product"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="rounding_type_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_59f696de1bd5c574" implied="false" onDeleteCascade="false" schema="public" table="mtb_rounding_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="0" id="7" name="tax_rate" nullable="false" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="'0'::numeric" digits="0" id="8" name="tax_adjust" nullable="false" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="apply_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_tax_rule_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_59f696de1bd5c574" unique="false">
+            <column ascending="true" name="rounding_type_id"/>
+         </index>
+         <index name="idx_59f696de21b06187" unique="false">
+            <column ascending="true" name="product_class_id"/>
+         </index>
+         <index name="idx_59f696de4584665a" unique="false">
+            <column ascending="true" name="product_id"/>
+         </index>
+         <index name="idx_59f696de61220ea6" unique="false">
+            <column ascending="true" name="creator_id"/>
+         </index>
+         <index name="idx_59f696dee171ef5f" unique="false">
+            <column ascending="true" name="pref_id"/>
+         </index>
+         <index name="idx_59f696def92f3e70" unique="false">
+            <column ascending="true" name="country_id"/>
+         </index>
+      </table>
+      <table name="dtb_template" numRows="1" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dtb_template_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="device_type_id" nullable="true" remarks="" size="5" type="int2" typeCode="5">
+            <parent column="id" foreignKey="fk_94c12a694ffa550e" implied="false" onDeleteCascade="false" schema="public" table="mtb_device_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="template_code" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="template_name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="dtb_template_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_94c12a694ffa550e" unique="false">
+            <column ascending="true" name="device_type_id"/>
+         </index>
+      </table>
+      <table name="mtb_authority" numRows="2" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="authority_id" foreignKey="fk_4a1f70b181ec865b" implied="false" onDeleteCascade="false" schema="public" table="dtb_authority_role"/>
+            <child column="authority_id" foreignKey="fk_10bc3be681ec865b" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_authority_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_country" numRows="249" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="country_id" foreignKey="fk_1d3655f4f92f3e70" implied="false" onDeleteCascade="false" schema="public" table="dtb_base_info"/>
+            <child column="country_id" foreignKey="fk_8298bbe3f92f3e70" implied="false" onDeleteCascade="false" schema="public" table="dtb_customer"/>
+            <child column="country_id" foreignKey="fk_6c38c0f8f92f3e70" implied="false" onDeleteCascade="false" schema="public" table="dtb_customer_address"/>
+            <child column="country_id" foreignKey="fk_1d66d807f92f3e70" implied="false" onDeleteCascade="false" schema="public" table="dtb_order"/>
+            <child column="country_id" foreignKey="fk_2ebd22cef92f3e70" implied="false" onDeleteCascade="false" schema="public" table="dtb_shipping"/>
+            <child column="country_id" foreignKey="fk_59f696def92f3e70" implied="false" onDeleteCascade="false" schema="public" table="dtb_tax_rule"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_country_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_csv_type" numRows="5" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="csv_type_id" foreignKey="fk_f55f48c3e8507796" implied="false" onDeleteCascade="false" schema="public" table="dtb_csv"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_csv_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_customer_order_status" numRows="8" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_customer_order_status_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_customer_status" numRows="3" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="customer_status_id" foreignKey="fk_8298bbe3c00af8a7" implied="false" onDeleteCascade="false" schema="public" table="dtb_customer"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_customer_status_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_device_type" numRows="2" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="device_type_id" foreignKey="fk_6b54dcbd4ffa550e" implied="false" onDeleteCascade="false" schema="public" table="dtb_block"/>
+            <child column="device_type_id" foreignKey="fk_5a62aa7c4ffa550e" implied="false" onDeleteCascade="false" schema="public" table="dtb_layout"/>
+            <child column="device_type_id" foreignKey="fk_1d66d8074ffa550e" implied="false" onDeleteCascade="false" schema="public" table="dtb_order"/>
+            <child column="device_type_id" foreignKey="fk_94c12a694ffa550e" implied="false" onDeleteCascade="false" schema="public" table="dtb_template"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_device_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_job" numRows="18" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="job_id" foreignKey="fk_8298bbe3be04ea9" implied="false" onDeleteCascade="false" schema="public" table="dtb_customer"/>
+            <child column="job_id" foreignKey="fk_1d66d807be04ea9" implied="false" onDeleteCascade="false" schema="public" table="dtb_order"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_job_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_order_item_type" numRows="6" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="order_item_type_id" foreignKey="fk_a0c8c3edcad13ead" implied="false" onDeleteCascade="false" schema="public" table="dtb_order_item"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_order_item_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_order_status" numRows="8" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="1" name="display_order_count" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_order_status_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_order_status_color" numRows="8" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_order_status_color_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_page_max" numRows="10" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_page_max_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_pref" numRows="47" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="pref_id" foreignKey="fk_1d3655f4e171ef5f" implied="false" onDeleteCascade="false" schema="public" table="dtb_base_info"/>
+            <child column="pref_id" foreignKey="fk_8298bbe3e171ef5f" implied="false" onDeleteCascade="false" schema="public" table="dtb_customer"/>
+            <child column="pref_id" foreignKey="fk_6c38c0f8e171ef5f" implied="false" onDeleteCascade="false" schema="public" table="dtb_customer_address"/>
+            <child column="pref_id" foreignKey="fk_4915524e171ef5f" implied="false" onDeleteCascade="false" schema="public" table="dtb_delivery_fee"/>
+            <child column="pref_id" foreignKey="fk_1d66d807e171ef5f" implied="false" onDeleteCascade="false" schema="public" table="dtb_order"/>
+            <child column="pref_id" foreignKey="fk_2ebd22cee171ef5f" implied="false" onDeleteCascade="false" schema="public" table="dtb_shipping"/>
+            <child column="pref_id" foreignKey="fk_59f696dee171ef5f" implied="false" onDeleteCascade="false" schema="public" table="dtb_tax_rule"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_pref_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_product_list_max" numRows="3" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_product_list_max_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_product_list_order_by" numRows="3" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_product_list_order_by_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_product_status" numRows="3" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="product_status_id" foreignKey="fk_c49de22f557b630" implied="false" onDeleteCascade="false" schema="public" table="dtb_product"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_product_status_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_rounding_type" numRows="3" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="rounding_type_id" foreignKey="fk_a0c8c3ed1bd5c574" implied="false" onDeleteCascade="false" schema="public" table="dtb_order_item"/>
+            <child column="rounding_type_id" foreignKey="fk_59f696de1bd5c574" implied="false" onDeleteCascade="false" schema="public" table="dtb_tax_rule"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_rounding_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_sale_type" numRows="2" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="sale_type_id" foreignKey="fk_3420d9fab0524e01" implied="false" onDeleteCascade="false" schema="public" table="dtb_delivery"/>
+            <child column="sale_type_id" foreignKey="fk_1a11d1bab0524e01" implied="false" onDeleteCascade="false" schema="public" table="dtb_product_class"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_sale_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_sex" numRows="2" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="sex_id" foreignKey="fk_8298bbe35a2db2a0" implied="false" onDeleteCascade="false" schema="public" table="dtb_customer"/>
+            <child column="sex_id" foreignKey="fk_1d66d8075a2db2a0" implied="false" onDeleteCascade="false" schema="public" table="dtb_order"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_sex_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_tax_display_type" numRows="2" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="tax_display_type_id" foreignKey="fk_a0c8c3eda2505856" implied="false" onDeleteCascade="false" schema="public" table="dtb_order_item"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_tax_display_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_tax_type" numRows="3" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="tax_type_id" foreignKey="fk_a0c8c3ed84042c99" implied="false" onDeleteCascade="false" schema="public" table="dtb_order_item"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_tax_type_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="mtb_work" numRows="2" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="5" type="int2" typeCode="5">
+            <child column="work_id" foreignKey="fk_10bc3be6bb3453db" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sort_no" nullable="false" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="discriminator_type" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="mtb_work_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table name="plg_admin_record" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('plg_admin_record_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="member_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="id" foreignKey="fk_4ed5bbe17597d3fe" implied="false" onDeleteCascade="false" schema="public" table="dtb_member"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="user_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="success_flg" nullable="true" remarks="" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="client_ip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="create_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="update_date" nullable="false" remarks="(DC2Type:datetimetz)" size="28" type="timestamptz" typeCode="93"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="plg_admin_record_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="idx_4ed5bbe17597d3fe" unique="false">
+            <column ascending="true" name="member_id"/>
+         </index>
+      </table>
+      <table name="plg_admin_record_config" numRows="0" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('plg_admin_record_config_id_seq'::regclass)" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="admin_deny_hosts" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="plg_admin_record_config_pkey" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+   </tables>
+</database>
